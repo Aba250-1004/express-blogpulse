@@ -8,4 +8,30 @@
 
 <hr />
 
+<form action="/articles/<%- article.author.dataValues.id %>" method="POST">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" required></input>
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea type="text" class="form-control" id="comment" name="comment" required></textarea>
+  </div>
+    <input type="hidden" value=<%- id %> id="id" name="id">
+  <input type="submit" class="btn btn-primary">
+</form>
+
+<hr />
+
+<ul>
+  <% for(comment of comments) {%> 
+    <div class="form-group">
+      <h3><%-comment.title %> </h3>
+      <p><%- comment.content  %> </p>
+    </div>
+  <% } %> 
+</ul>
+
+<hr>
+
 <a href="/">&larr; Back Home</a>

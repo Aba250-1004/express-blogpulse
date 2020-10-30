@@ -36,12 +36,37 @@ router.get('/:id', (req, res) => {
   })
   .then((article) => {
     if (!article) throw Error()
-    console.log(article.author)
-    res.render('articles/show', { article: article })
+    console.log(req.params.id)
+    // console.log(article.author)
+    db.comment.findAll({
+      where:{
+        articleId:req.params.id
+      }
+    })
+    .then(comments => {
+      res.render('articles/show', { article: article, comments:comments, id: req.params.id})
+    })
   })
   .catch((error) => {
     console.log(error)
     res.status(400).render('main/404')
+  })
+})
+
+router.post('/:id', (req, res) => {
+  // res.send(req.body)
+  // res.send(req.body.comment)
+  // res.send(req.body.id)
+  // res.send(req.body.title)
+  db.comment.create({
+    title:req.body.title,
+    articleId:req.body.id,
+    content:req.body.comment
+  })
+  .then(createdComment => {
+    console.log("then post")
+    console.log(req.body.id)
+    res.redirect(""+req.body.id);
   })
 })
 

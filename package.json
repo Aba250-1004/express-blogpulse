@@ -7,11 +7,23 @@
   },
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "ejs": "^2.7.4",
+    "ejs-layouts": "0.0.1",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "moment": "^2.29.1",
-    "pg": "^7.18.2",
-    "sequelize": "^5.22.3"
-  }
+    "pg": "^8.4.1",
+    "sequelize": "^6.3.5"
+  },
+  "description": "To practice 1:M associations, we'll be adding comment functionality to an existing blog application.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aba250-1004/express-blogpulse.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Aba250-1004/express-blogpulse/issues"
+  },
+  "homepage": "https://github.com/Aba250-1004/express-blogpulse#readme"
 }
